@@ -1,3 +1,88 @@
+        //Home work 20
+
+//1
+
+    let a = prompt('Enter first number', '1');
+    let b = prompt('Enter second number', '2');
+
+function maxNumber (a, b) {
+    if (+a > +b) {
+        alert(a)
+    }
+
+    else if (+a < +b){
+        alert(b)
+    }
+    
+    else if (+a == +b) {
+        alert('a = b')
+    }
+
+    else{
+        alert('Incorrect numbers')
+    }
+}
+alert(maxNumber(a, b));
+
+//2
+
+function revers(number) {
+    number = prompt('enter the number')
+    if (+number > 0) {
+        alert(-(+number))
+    }
+    else if (+number < 0) {
+        alert(+number * (-1))
+    }
+    else if(+number == 0) {
+        alert(+number)
+    }
+    else {
+        alert('This is not a number')
+    } 
+}
+
+alert(revers());
+
+//3
+
+function plusThree(number, count) {
+    number = prompt('Enter the number please');
+    count = prompt('Enter the count number for plusing to first number');
+    alert (+number + (3* +count))
+}
+
+alert(plusThree());
+
+//4
+
+
+function getMetric(metric, km, m, cm) {
+    km = prompt('Enter the number of kilometres');
+    metric = prompt('Enter the measurement into which you want to convert the kilometer value m or cm');
+
+    if (metric == 'm') {
+        alert(kmToM(km));
+    }
+    else if (metric == 'cm') {
+        alert(kmToCm(km));
+    }
+    else {
+        alert('You enter incorrect parameters')
+    }
+}
+
+function kmToM(km) {
+    alert(+km * 1000)
+}
+
+function kmToCm(km) {
+    alert(+km * 100000)
+}
+
+getMetric();
+
+
         //Home work 19
 
 //1
