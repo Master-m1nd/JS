@@ -1,3 +1,96 @@
+        //Home work 21
+
+//1
+
+let car = {
+    model: 'Maserati',
+    year: 2013,
+    color: 'red',
+    signal() {
+        console.log('wroom! wroom!');
+    }
+}
+
+car.color = 'silver';
+car.type = 'fuel engine';
+
+
+console.log(car);
+car.signal();
+
+//2
+
+let salaries = {
+    fronted: 12000,
+    backend: 10000,
+    designer: 8000,
+    dayPay() {
+        console.log('We must pay salary on Tuesday!');
+    },
+    total() {
+        let sum = 0;
+        for (let key in salaries) {
+            if (typeof salaries[key] == 'number' ) {
+                sum += salaries[key];
+            }
+        }
+        console.log(sum);
+    }
+}
+
+salaries.manager = 5000;
+
+salaries.total();
+
+//3 
+
+function pcInfo (brand, system, cost) {
+    this.brand = brand;
+    this.system = system;
+    this.cost = cost;
+}
+
+let dell = new pcInfo('Dell', 'Windows', 800);
+let apple = new pcInfo('Apple', 'MAC OS', 1700);
+
+console.log(dell);
+console.log(apple);
+
+//4
+
+let tasks = {
+    Vasyl: {
+        status: 'done',
+        title: 'to solve bags in header',
+    },
+    Nadya: {
+        status: 'new',
+        title: 'create the scatch of background picture',
+    },
+    Emma: {
+        status: 'in progress',
+        title: 'make a model of web site',
+    }
+}
+
+let taskName = prompt('Enter your name please');
+
+while(tasks.hasOwnProperty(taskName)){
+    taskName = prompt('This name is aready take. Please, choose another name to enter')
+};
+
+let taskStatus = prompt('Enter the status of your task (new, proceeding or done)');
+
+while(taskStatus !== 'new' && taskStatus !== 'proceeding' && taskStatus !== 'done' ) {
+    taskStatus = prompt ('Write the correct task status please (new, proceeding or done)')
+};
+
+let taskTitle = prompt('Enter the tilte of task')
+
+tasks[taskName] = {status: taskStatus, title: taskTitle};
+
+console.log(tasks);
+
         //Home work 20
 
 //1
