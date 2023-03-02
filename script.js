@@ -1,4 +1,99 @@
-        //Home work 21
+       //Home work 22
+       
+//1
+
+let array = ['Mike', 'Nikola', 'Tom'];
+console.log(array[2]);
+
+array[1] = 'Alex';
+console.log(array);
+
+array.splice(1, 2);
+console.log(array);
+
+console.log(array.length);
+
+//2
+
+let a = [5, 3, -4, 25, 32, -16, 6];
+
+let sumFirstArray = 0;
+for(let i = 0; i < a.length; i++)
+sumFirstArray  += a[i];
+
+console.log(sumFirstArray);
+
+let b = [21, -30, 9, 5, 12, -19, 5, 25];
+
+let sumSecondArray = 0;
+for(let i = 0; i < b.length; i++)
+sumFirstArray  += b[i];
+
+console.log(sumSecondArray);
+
+function comparingArrays  ()  {
+    if (sumFirstArray > sumSecondArray) {
+        console.log('a > b')
+    }
+    else if (sumFirstArray < sumSecondArray) {
+        console.log('a < b')
+    }
+    else {
+        console.log('a == b')
+    }
+}
+
+comparingArrays ();
+
+//3
+
+let phrase = 'I am learning JavaScript right now';
+let phraseArray = [];
+
+phraseArray = phrase;
+
+
+console.log(phraseArray.split(' '));
+console.log(phraseArray.split(' ')[3]);
+
+//4
+
+let a = [5, 3, 8, 5, 3, 2, 1, 2];
+
+
+let b = [];
+
+a.forEach((numbers) => {
+    if (b.indexOf(numbers) === -1) {
+        b.push(numbers)
+    }
+});
+
+console.log(b);
+
+//5
+
+let users =[{id:1, age:17},
+            {id:2, age:18},
+            {id:3, age:19},
+            {id:4, age:21},
+            {id:5, age:17},
+            {id:6, age:20},
+            {id:7, age:25}
+        ];
+
+let userFilter = users.filter(user => user.age > 18 && user.age < 21);
+console.log(userFilter);
+
+let chosenId = [];
+userFilter.forEach((user) => {
+    chosenId.push(user.id)
+})
+
+console.log(chosenId);
+
+       
+       //Home work 21
 
 //1
 
