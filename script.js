@@ -1,5 +1,82 @@
 'use strict'
 
+        //Home work 24
+
+//1-3
+
+class User {
+    #name;
+    constructor(name, login, age, newName, password) {
+        this.#name = name;
+        this.login = login;
+        this.age = age;
+        this.newName = newName;
+        this.password = password;
+    }
+    getName(isAdmin) {
+        if (isAdmin) {
+            if (this.#name !== '' || this.login !== '') {
+                return this.#name || this.login;
+            }
+        }
+        else {
+            return ('Permission denied');
+        }
+    }
+    ChangeName(newName, password) {
+        if(password == '123') {
+            return (`Name changed from ${this.#name} to ${newName}`)
+        }
+        else {
+            return   ('Permission denied')
+        } 
+    }
+}
+
+let user1 = new User('Mike', 'MK_18', 18);
+let user2 = new User('', 'NRG', 22);
+
+console.log(user1.login);
+console.log(user1.age);
+console.log(user2.login);
+console.log(user2.age);
+
+console.log(user1.getName(true));
+console.log(user2.getName(true));
+console.log(user2.getName(false));
+
+console.log(user1.ChangeName('Bill', '123'));
+
+//5
+
+class newUser {
+    #phone;
+    constructor(name,phone) {
+        this.name = name;
+        this.#phone = phone;
+    }
+    getPhone(isAdmin) {
+        if(isAdmin == false) {
+        let spliting = [];
+        spliting = this.#phone.split('-');
+        spliting[1] = '***';
+        spliting[2] = '***';
+            return  spliting.join('-');
+        }
+        else {
+            return `${this.#phone}`
+        }
+    }        
+}
+
+let newUser1 = new newUser ('Mike', '067-888-88-99');
+let newUser2 = new newUser ('Tom', '099-888-88-99');
+
+console.log(newUser1.getPhone(false));
+console.log(newUser1.getPhone(true));
+console.log(newUser2.getPhone(false));
+console.log(newUser2.getPhone(true));
+
         //Home work 23
 
 //1
