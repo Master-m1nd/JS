@@ -1,5 +1,193 @@
 'use strict'
 
+        //Home work 26
+
+//1
+
+let car = {
+    type: 'electronic',
+    wheels: 4,
+}
+
+let sportCar = {
+    doors: 2
+}
+Object.setPrototypeOf(sportCar, car);
+
+let passengerCar = {
+    doors: 4
+}
+Object.setPrototypeOf(passengerCar, car);
+
+
+let toyCar = Object.create(sportCar);
+toyCar.type ='toy';
+
+
+console.log(sportCar.type);
+console.log(passengerCar.wheels);
+console.log(toyCar.type);
+
+//2
+
+let employees = {
+    wallet: {},
+    pay(month, sum) {
+        this.wallet[month] = sum;
+    },
+}
+
+let frontendDeveloper = {
+    name: 'Mike',
+}
+Object.setPrototypeOf(frontendDeveloper, employees);
+frontendDeveloper.pay('june', 2000);
+
+console.log('frontendDeveloper:', frontendDeveloper.wallet.june);
+
+let backendDeveloper = {
+    name: 'Bob',
+}
+Object.setPrototypeOf(backendDeveloper, employees);
+backendDeveloper.pay('june', 1500);
+
+console.log('backendDeveloper:', backendDeveloper.wallet.june);
+
+//3
+
+function User(name, age) {
+    this.name = name;
+    this.age = age
+}
+
+let user_1 = new User('Mike', 18);
+let user_2 = new user_1.constructor('Bob', 25);
+
+console.log(user_2);
+
+//4
+
+function UserType (name) {
+    for(let i = 0; i < name.length; i++) {
+        this[i] = name[i];
+        if(i + 1 == name.length) {
+            Object.defineProperty(this, 'length', {
+                enumerable: true, 
+                writable: false,
+                configurable: true,
+                value: i + 1
+            });
+        }
+    }
+}
+
+
+let admins = new UserType (['Mike', 'Bob', 'Nikola']);
+admins.join = Array.prototype.join;
+
+console.log(admins.join('; '));
+
+        //Home work 25
+
+//1
+
+const user = {
+    name: 'Emma',
+    age: 21,
+    id: 1,
+}
+Object.defineProperty(user, 'name', {
+    writable: true,
+    enumerable: false,
+    configurable: false
+});
+Object.defineProperty(user, 'age', {
+    writable: true,
+    enumerable: false,
+    configurable: false
+});
+Object.defineProperty(user, 'id', {
+    writable: false,
+    enumerable: false,
+    configurable: false
+});
+
+console.log(Object.getOwnPropertyDescriptor(user, 'name'));
+console.log(Object.getOwnPropertyDescriptor(user, 'age'));
+console.log(Object.getOwnPropertyDescriptor(user, 'id'));
+
+//2
+
+let dataBase = {
+    dbName: 'user',
+    dbType: 'MySQL'
+}
+
+let configurateDB = {
+    token: '123',
+    password: '567',
+    user: 'admin'
+}
+
+Object.freeze(dataBase);
+dataBase.dbName = 'Dean';
+console.log(dataBase.dbName);
+
+Object.seal(configurateDB);
+delete configurateDB.user;
+console.log(configurateDB.user);
+
+//3
+
+let salaries = {
+    frontend: 2000,
+    backend: 1500,
+    design: 1000,
+}
+Object.defineProperty(salaries, 'sum', {
+    get() {
+        let sum = 0;
+        for (salary in this) {
+            sum += this(salary);
+        }
+        console.log(sum);
+    },
+});
+Object.defineProperty(salaries, 'addSalaries', {
+    set(inputValue){
+        inputValue.forEach((item)=>{
+            splitedValue = item.split(': ')
+            key = splitedValue[0];
+            value = splitedValue[1];
+            this[key] = +value;
+        })
+    },
+    enumerable: false
+});
+salaries.addSalaries = ['frontend: 2500', 'backend: 1750', 'design: 1300', 'manager: 800'];
+console.log(salaries);
+
+//4
+
+let user = {
+    name: 'Mike',
+    surname: 'Davids',
+    age: 25,
+}
+Object.defineProperty(user, 'userInfo', {
+    get() {
+        let userArray = [];
+        for(let key in user){
+            userArray.push(`${key} : ${user[key]}`);
+        }
+        console.log(userArray);
+    }, enumerable: false
+});
+
+user.userInfo;
+user.login = 'MK_18';
+user.userInfo;
+
         //Home work 24
 
 //1-3
