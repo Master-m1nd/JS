@@ -31,7 +31,6 @@ console.log(toyCar.type);
 //2
 
 let employees = {
-    wallet: {},
     pay(month, sum) {
         this.wallet[month] = sum;
     },
@@ -39,19 +38,20 @@ let employees = {
 
 let frontendDeveloper = {
     name: 'Mike',
+    wallet: {},
 }
 Object.setPrototypeOf(frontendDeveloper, employees);
 frontendDeveloper.pay('june', 2000);
 
-console.log('frontendDeveloper:', frontendDeveloper.wallet.june);
-
 let backendDeveloper = {
     name: 'Bob',
+    wallet: {},
 }
 Object.setPrototypeOf(backendDeveloper, employees);
 backendDeveloper.pay('june', 1500);
 
 console.log('backendDeveloper:', backendDeveloper.wallet.june);
+console.log('frontendDeveloper:', frontendDeveloper.wallet.june);
 
 //3
 
