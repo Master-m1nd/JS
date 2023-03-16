@@ -1,5 +1,143 @@
 'use strict'
 
+        //Home work 28
+
+//1-2
+
+function count(expression){
+    function getValues(expression){
+       let values = [...expression]
+       return values;
+    }
+    let values = getValues(expression);
+    switch (values[1]) {
+        case '+': 
+         return  showResult(sum(values));
+        case '-':
+         return  showResult(subtract(values));
+        case '*':
+         return  showResult(multiply(values));
+        case '/':
+         return showResult(divide(values))
+     }
+     function showResult(value){
+         return value
+     }
+  }
+  function sum(values) {
+    return +values[0] + +values[2];
+}
+function subtract(values) {
+    return +values[0] - +values[2];
+}
+function multiply(values) {
+    return +values[0] * +values[2];
+}
+function divide(values) {
+    try{
+        if(+values[2] == 0) {
+            throw new Error('Can`t divide by 0')
+        }
+        else {
+            return +values[0] / +values[2];
+        }
+    }
+    catch (error) {
+        if(error.name == 'Error'){
+            console.log(error.message);
+            return 0
+        } 
+        else {
+            throw error
+        }
+    }
+}
+
+console.log(count('5/0'))
+
+//3
+
+function count(expression) {   
+    function getValues(expression) {
+        let values = [...expression];
+             return values;
+    }
+    let values;
+    try {
+        if(typeof expression !== 'string') {
+            return 'Please write in string format';
+        }
+        values = getValues(expression);
+    }
+    catch(error) {
+        console.log(error.name + ': ' + error.message)
+    values = [0, '+', 0];
+    }
+    switch (values[1]) {
+        case '+': 
+        return  showResult(sum(values));
+        case '-':
+        return  showResult(subtract(values));
+        case '*':
+        return  showResult(multiply(values));
+        case '/':
+        return showResult(divide(values))
+    }
+    function showResult(value) {
+        return value
+    }
+}
+function sum(values) {
+    return +values[0] + +values[2];
+}
+function subtract(values) {
+    return +values[0] - +values[2];
+}
+function multiply(values) {
+    return +values[0] * +values[2];
+}
+function divide(values) {
+    return +values[0] / +values[2];
+}
+
+console.log(count(5*2));
+console.log(count('5*2'));
+
+//4
+
+function MakeUsers (name, age) {
+    this.name = name;
+    this.age = age;
+}
+let user = new MakeUsers ('Mike');
+    function showMovie (user) {
+        try {
+            if(user.age == undefined) {
+                throw new SyntaxError('You wrote incorrect age'); 
+            }
+            if(user.age >= 18) {
+                console.log('You can watch this movie');
+            }
+            else if(user.age < 18) {
+                console.log('Sorry, you are too young');
+            }
+            else {
+                return ('You wrote incorrect age');
+            } 
+        }
+        catch(error) {
+            if(error.message == 'You wrote incorrect age') {
+                user.age = prompt('Please, enter your age');
+                console.log(showMovie(user));
+            }
+            else {
+                throw error
+            }
+        }
+    }
+
+    showMovie(user);
+
         //Home work 26
 
 //1
